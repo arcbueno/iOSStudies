@@ -16,9 +16,13 @@ struct StoresContainerView: View {
             
             VStack(alignment: .leading,spacing: 30){
                 ForEach(restaurantsMock){ item in
-                    StoreItemView(order: item)
+                    NavigationLink {
+                        StoreDetailView(store: item)
+                    } label: {
+                        StoreItemView(order: item)
+                    }
                 }
-            }
+            }.foregroundColor(.black) 
         }.padding(20)
     }
 }
