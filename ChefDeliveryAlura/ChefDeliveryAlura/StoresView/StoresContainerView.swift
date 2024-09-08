@@ -9,17 +9,58 @@ import SwiftUI
 
 struct StoresContainerView: View {
     let title = "Lojas"
+    @State private var ratingFilter = 0
+    var filteredStores: [StoreType] {
+        return restaurantsMock.filter{ store in
+            store.stars >= ratingFilter
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading){
-            Text(title)
-                .font(.headline).padding(.bottom, 20)
+            HStack{
+                Text(title)
+                    .font(.headline)
+                Spacer()
+                Menu("Filtrar"){
+                    Button(action: {
+                        ratingFilter = 0
+                    }, label: {
+                        Text("Limpar filtro")
+                    })
+                    Divider()
+                    ForEach(1...5, id: \.self) {rating in
+                        Button(action: {
+                            ratingFilter = rating
+                        }, label: {
+                            if(rating > 1){                                    Text("\(rating) estrelas ou mais")
+                            }
+                            else{
+                                Text("\(rating) estrela ou mais")
+                            }
+                        })
+                    }
+                        
+                }.foregroundColor(.black)
+            }
             
             VStack(alignment: .leading,spacing: 30){
-                ForEach(restaurantsMock){ item in
-                    NavigationLink {
-                        StoreDetailView(store: item)
-                    } label: {
-                        StoreItemView(order: item)
+                
+                if filteredStores.isEmpty{
+                    Text("Nenhum resultado encontrado")
+                        .font(.title2)
+                        .foregroundColor(Color("ColorRed"))
+                        .padding(.vertical, 32)
+                        .frame(maxWidth: .infinity)
+                    
+                }
+                else{
+                    ForEach(filteredStores){ item in
+                        NavigationLink {
+                            StoreDetailView(store: item)
+                        } label: {
+                            StoreItemView(order: item)
+                        }
                     }
                 }
             }.foregroundColor(.black) 
