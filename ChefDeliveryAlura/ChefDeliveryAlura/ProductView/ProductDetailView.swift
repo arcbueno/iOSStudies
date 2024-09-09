@@ -11,6 +11,8 @@ struct ProductDetailView: View {
     let product: ProductType
     @State private var productQuantity = 1
     
+    var service = StoreService()
+    
     var body: some View {
         VStack{
             Image(product.image).resizable().scaledToFit()
@@ -44,17 +46,27 @@ struct ProductDetailView: View {
             }
             Spacer()
             
-            Button(action: {}, label: {
-                HStack{
-                    Image(systemName: "cart").foregroundColor(.white)
-                    Text("Adicionar ao carrinho").foregroundColor(.white)
-                }.padding(.horizontal, 32)
-                    .padding(.vertical, 16)
-                    .font(.title3).bold()
-                    .background(Color("ColorRed"))
-                    .cornerRadius(32)
-                    .shadow(color: Color("ColorRedDark").opacity(0.5), radius: 10, x: 6, y: 8)
+            ProductDetailViewButton(onButtonPressed: {
+                Task {
+                    await confirmOrder()
+                }
             })
+        }
+    }
+    
+    func confirmOrder() async {
+        do{
+            let result = try await service.confirmOrder(product: product)
+            switch result {
+            case .success(let message):
+                print(message?.keys)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+        catch{
+            print(error.localizedDescription)
         }
     }
 }
@@ -62,5 +74,26 @@ struct ProductDetailView: View {
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ProductDetailView(product: restaurantsMock[0].products[0])
+    }
+}
+
+struct ProductDetailViewButton: View {
+    var onButtonPressed: ()-> Void
+    
+    var body: some View {
+        
+        Button(action: {
+            onButtonPressed()
+        }, label: {
+            HStack{
+                Image(systemName: "cart").foregroundColor(.white)
+                Text("Enviar pedido").foregroundColor(.white)
+            }.padding(.horizontal, 32)
+                .padding(.vertical, 16)
+                .font(.title3).bold()
+                .background(Color("ColorRed"))
+                .cornerRadius(32)
+                .shadow(color: Color("ColorRedDark").opacity(0.5), radius: 10, x: 6, y: 8)
+        })
     }
 }

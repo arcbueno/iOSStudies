@@ -10,8 +10,9 @@ import SwiftUI
 struct StoresContainerView: View {
     let title = "Lojas"
     @State private var ratingFilter = 0
+    var stores: [StoreType]
     var filteredStores: [StoreType] {
-        return restaurantsMock.filter{ store in
+        return stores.filter{ store in
             store.stars >= ratingFilter
         }
     }
@@ -70,6 +71,6 @@ struct StoresContainerView: View {
 
 struct StoresContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        StoresContainerView()
+        StoresContainerView(stores: [])
     }
 }
