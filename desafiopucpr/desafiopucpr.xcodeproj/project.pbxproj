@@ -15,6 +15,7 @@
 		A822CD2D2C9619DC009E48A9 /* desafiopucprUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822CD2C2C9619DC009E48A9 /* desafiopucprUITests.swift */; };
 		A822CD2F2C9619DC009E48A9 /* desafiopucprUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822CD2E2C9619DC009E48A9 /* desafiopucprUITestsLaunchTests.swift */; };
 		A822CD3C2C961B8A009E48A9 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822CD3B2C961B8A009E48A9 /* LoginView.swift */; };
+		A822CD3E2C96394D009E48A9 /* PlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A822CD3D2C96394D009E48A9 /* PlaylistView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A822CD2C2C9619DC009E48A9 /* desafiopucprUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafiopucprUITests.swift; sourceTree = "<group>"; };
 		A822CD2E2C9619DC009E48A9 /* desafiopucprUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafiopucprUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A822CD3B2C961B8A009E48A9 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A822CD3D2C96394D009E48A9 /* PlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				A822CD152C9619DC009E48A9 /* Assets.xcassets */,
 				A822CD172C9619DC009E48A9 /* Preview Content */,
 				A822CD3B2C961B8A009E48A9 /* LoginView.swift */,
+				A822CD3D2C96394D009E48A9 /* PlaylistView.swift */,
 			);
 			path = desafiopucpr;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				A822CD3C2C961B8A009E48A9 /* LoginView.swift in Sources */,
 				A822CD142C9619DB009E48A9 /* ContentView.swift in Sources */,
+				A822CD3E2C96394D009E48A9 /* PlaylistView.swift in Sources */,
 				A822CD122C9619DB009E48A9 /* desafiopucprApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +432,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +461,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
